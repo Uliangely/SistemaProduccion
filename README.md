@@ -1,2 +1,1 @@
-Anthony Ferrer Uliangely Cádiz
-Producción
+Sistema de Producción de una empresa de prendas de vestir
