@@ -1,0 +1,138 @@
+//Ejemplo de inserción en la tabla "Personal" de la base de datos "produccion"
+
+
+// const [nombreCompleto, setNombreCompleto] = useState('');
+// const [cargo, setCargo] = useState('');
+// const [departamento, setDepartamento] = useState('');
+// const [fechaContratacion, setFechaContratacion] = useState('');
+// const [numeroTelefono, setNumeroTelefono] = useState('');
+// const [correoElectronico, setCorreoElectronico] = useState('');
+// const [certificacionHabilidad, setCertificacionHabilidad] = useState('');
+// const [estatus, setEstatus] = useState('');
+// const [horario, setHorario] = useState('');
+// const [tipoPersonal, setTipoPersonal] = useState('');
+
+// const asignarRecursos = async (requerimientoID) => {
+//     try {
+//       // Datos para el POST en la tabla "Personal"
+//       const personalData = {
+//         Nombre_Completo: nombreCompleto,
+//         Cargo: cargo,
+//         Departamento: departamento,
+//         Fecha_Contratacion: fechaContratacion,
+//         Numero_Telefono: numeroTelefono,
+//         Correo_Electronico: correoElectronico,
+//         Certificacion_Habilidad: certificacionHabilidad,
+//         Estatus: estatus,
+//         Horario: horario,
+//         Tipos_Personal_ID_Tipo_Personal: tipoPersonal,
+//         // Agrega los demás campos según sea necesario
+//       };
+
+//       // Realizar el POST a la API de Personal
+//       const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/personalPOST/route`, {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(personalData),
+//       });
+
+//       // Manejar la respuesta de la API
+//       const data = await response.json();
+//       if (response.ok) {
+//         // Éxito en la inserción, puedes manejar la respuesta según sea necesario
+//         console.log('Inserción exitosa:', data.response.personal);
+//         closeModal(); // Cierra la ventana modal después de la inserción exitosa
+//       } else {
+//         // Error en la inserción, puedes manejar la respuesta según sea necesario
+//         console.error('Error en la inserción:', data.response.message);
+//       }
+//     } catch (error) {
+//       console.error('Error en la solicitud:', error);
+//     }
+//   };
+
+
+//   //API de inserción en la tabla "Personal" de la base de datos "produccion"
+// export default async function handler(req, res) {
+//     if (req.method === "POST") {
+//       try {
+//         // Obtén los datos necesarios del cuerpo de la solicitud
+//         const {
+//           Nombre_Completo,
+//           Cargo,
+//           Departamento,
+//           Fecha_Contratacion,
+//           Numero_Telefono,
+//           Correo_Electronico,
+//           Certificacion_Habilidad,
+//           Estatus,
+//           Horario,
+//           Tipos_Personal_ID_Tipo_Personal,
+//         } = req.body;
+  
+//         // Realiza la inserción en la tabla "Personal"
+//         const addPersonal = await query({
+//           query: `
+//             INSERT INTO produccion.Personal (
+//               Nombre_Completo,
+//               Cargo,
+//               Departamento,
+//               Fecha_Contratacion,
+//               Numero_Telefono,
+//               Correo_Electronico,
+//               Certificacion_Habilidad,
+//               Estatus,
+//               Horario,
+//               Tipos_Personal_ID_Tipo_Personal
+//             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+//           `,
+//           values: [
+//             Nombre_Completo,
+//             Cargo,
+//             Departamento,
+//             Fecha_Contratacion,
+//             Numero_Telefono,
+//             Correo_Electronico,
+//             Certificacion_Habilidad,
+//             Estatus,
+//             Horario,
+//             Tipos_Personal_ID_Tipo_Personal,
+//           ],
+//         });
+  
+//         // Verifica si la inserción fue exitosa
+//         let message;
+//         let personal = {};
+  
+//         if (addPersonal.insertId) {
+//           message = "success";
+//           personal = {
+//             personal_id: addPersonal.insertId,
+//             Nombre_Completo,
+//             Cargo,
+//             Departamento,
+//             Fecha_Contratacion,
+//             Numero_Telefono,
+//             Correo_Electronico,
+//             Certificacion_Habilidad,
+//             Estatus,
+//             Horario,
+//             Tipos_Personal_ID_Tipo_Personal,
+//           };
+//         } else {
+//           message = "error";
+//         }
+  
+//         // Envía la respuesta al cliente
+//         res.status(200).json({ response: { message, personal } });
+//       } catch (error) {
+//         console.error("Error en el manejo de la solicitud:", error);
+//         res.status(500).json({ response: { message: "error" } });
+//       }
+//     } else {
+//       res.status(405).json({ response: { message: "Method Not Allowed" } });
+//     }
+//   }
+  

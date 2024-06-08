@@ -1,0 +1,17 @@
+/* styles/tailwind.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer utilities {
+    .cyan-100 { background-color: #e0f7fa; }
+    .cyan-200 { background-color: #b2ebf2; }
+    .cyan-300 { background-color: #80deea; }
+    .cyan-400 { background-color: #4dd0e1; }
+    .cyan-500 { background-color: #00bcd4; }
+    .cyan-600 { background-color: #00acc1; }
+    .cyan-700 { background-color: #0097a7; }
+    .cyan-800 { background-color: #00838f; }
+    .cyan-900 { background-color: #006064; }
+  }
+  
